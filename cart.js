@@ -141,7 +141,43 @@ function purchaseBtnClicked () {
 }
 // end of purchase items
 
-//alert user if cart is empty 
+
+
+
+// add heart effects on products on container
+
+(function() {
+  const hearts = document.getElementById('heart');
+  hearts.addEventListener('click', function() {
+    hearts.classList.toggle('red');
+  });
+})();
+
+$(document).on('click', ".notliked", function() {
+    var $this = $(this);
+    $this.removeClass('notliked');
+    $this.addClass('liked')
+    $count = $('.likes-count');
+    $count.text(function(idx, txt) {
+    return (+txt == 0) ? 0 : (+txt - 1);
+
+    });
+
+});
+
+$(document).on('click', ".liked", function() {
+    var $this = $(this);
+    $this.removeClass('liked');
+    $this.addClass('notliked');
+    $count = $('.likes-count');
+    $count.text(function(idx, txt) {
+            return +txt + 1;
+
+    });
+
+});
+
+
 
 
 
